@@ -144,6 +144,11 @@ class Address implements AddressInterface
         return $this->y;
     }
 
+    public function getProvince()
+    {
+        return $this->province;
+    }
+
 
     /**
      * @param $address
@@ -155,10 +160,5 @@ class Address implements AddressInterface
                 $this->{$property} = $value;
             }
         }
-    }
-
-    public function getProvince()
-    {
-        return $this->province;
     }
 }
