@@ -22,13 +22,15 @@ class ZipApi implements ZipApiInterface
     }
 
     /**
-     * @param Zip $zip
+     * @param $postcode
+     * @param $number
      * @return Address
+     * @throws Exception\UnsuccessfulRequestException
      */
-    public function address(Zip $zip)
+    public function address($postcode, $number)
     {
         $result = $this->client->get(
-            $this->baseUrl . "/" . $zip->getZip() . "/" . $zip->getNumber(),
+            $this->baseUrl . "/" . $postcode . "/" . $number,
             [
                 "headers" => [
                     "Content-Type" => "application/x-www-form-urlencoded; charset=UTF-8",

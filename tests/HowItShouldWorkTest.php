@@ -15,10 +15,9 @@ class HowItShouldWorkTest extends PHPUnit_Framework_TestCase
 
     public function testWorkings()
     {
-        $address = new Zip("8017KM", "20c");
 
         $postcodeApi = new ZipApi(getenv("API_KEY"));
-        $addressData = $postcodeApi->address($address);
+        $addressData = $postcodeApi->address("8017KM", "20c");
 
         $this->assertInstanceOf("Wubs\\Zip\\Address", $addressData);
         $this->assertObjectHasAttribute("street", $addressData);
