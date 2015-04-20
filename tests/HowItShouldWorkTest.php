@@ -17,12 +17,13 @@ class HowItShouldWorkTest extends PHPUnit_Framework_TestCase
     {
 
         $postcodeApi = new ZipApi(getenv("API_KEY"));
-        $addressData = $postcodeApi->address("8017KM", "20c");
+        $addressData = $postcodeApi->address("8017KM", "20");
 
         $this->assertInstanceOf("Wubs\\Zip\\Address", $addressData);
         $this->assertObjectHasAttribute("street", $addressData);
         $this->assertObjectHasAttribute("latitude", $addressData);
         $this->assertObjectHasAttribute("longitude", $addressData);
         $this->assertEquals("Overijssel", $addressData->getProvince());
+        $this->assertEquals("20", $addressData->getHouseNumber());
     }
 }

@@ -40,6 +40,7 @@ class ZipApi implements ZipApiInterface
             ]
         );
         $address = $result->json(['object' => true]);
+
         return Address::create($address);
     }
 

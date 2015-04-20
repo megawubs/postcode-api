@@ -8,6 +8,7 @@
 
 namespace Wubs\Zip;
 
+use Illuminate\Support\Str;
 use Wubs\Zip\Contracts\Address as AddressInterface;
 use Wubs\Zip\Exception\UnsuccessfulRequestException;
 
@@ -156,6 +157,7 @@ class Address implements AddressInterface
     private function map($address)
     {
         foreach ($address as $property => $value) {
+            $property = Str::camel($property);
             if (property_exists($this, $property)) {
                 $this->{$property} = $value;
             }
