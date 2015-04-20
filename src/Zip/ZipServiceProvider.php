@@ -30,7 +30,7 @@ class ZipServiceProvider extends ServiceProvider
         $app->bind(
             'zip',
             function () use ($app) {
-                return new ZipApi($app['config']['zip_api']);
+                return new ZipApi($app['config']->get('zip.key'));
             }
         );
     }

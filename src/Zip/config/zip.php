@@ -11,5 +11,5 @@ return [
     | 
     |
     */
-    "api_key" => env("ZIP_API_KEY", "YOUR_KEY_HERE")
+    "key" => env("ZIP_API_KEY", "YOUR_KEY_HERE")
 ];
