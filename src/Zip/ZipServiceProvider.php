@@ -25,17 +25,12 @@ class ZipServiceProvider extends ServiceProvider
      */
     public function register()
     {
-//        $this->app->singleton(
-//            'Wubs\Zip\ZipApi',
-//            function ($app) {
-//                return new ZipApi($app['config']['zip_api']);
-//            }
-//        );
+        $app = $this->app;
 
-        $this->app->bind(
+        $app->bind(
             'zip',
-            function () use ($this) {
-                return new ZipApi($this->app['config']['zip_api']);
+            function () use ($app) {
+                return new ZipApi($app['config']['zip_api']);
             }
         );
     }
