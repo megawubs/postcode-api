@@ -15,7 +15,7 @@ class ZipServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->publishes([__DIR__ . '/config/zip.php' => config_path('courier.php')]);
+        $this->publishes([__DIR__ . '/config/zip.php' => config_path('zip.php')]);
     }
 
     /**
