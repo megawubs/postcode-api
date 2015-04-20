@@ -1,4 +1,7 @@
 <?php
+
+namespace Wubs\Zip\Facades;
+
 use Illuminate\Support\Facades\Facade;
 
 /**
