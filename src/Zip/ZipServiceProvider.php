@@ -10,7 +10,7 @@ namespace Wubs\Zip;
 
 use Illuminate\Support\ServiceProvider;
 
-class Provider extends ServiceProvider
+class ZipServiceProvider extends ServiceProvider
 {
 
     public function boot()
@@ -25,10 +25,17 @@ class Provider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(
-            'Wubs\Zip\ZipApi',
-            function ($app) {
-                return new ZipApi($app['config']['zip_api']);
+//        $this->app->singleton(
+//            'Wubs\Zip\ZipApi',
+//            function ($app) {
+//                return new ZipApi($app['config']['zip_api']);
+//            }
+//        );
+
+        $this->app->bind(
+            'zip',
+            function () use ($this) {
+                return new ZipApi($this->app['config']['zip_api']);
             }
         );
     }
