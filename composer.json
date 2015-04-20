@@ -17,7 +17,7 @@
   "require": {
     "php": ">=5.5",
     "guzzlehttp/guzzle": "5.2.0",
-    "illuminate/support": "5.0.x-dev"
+    "illuminate/support": "5.0.x"
   },
   "require-dev": {
     "vlucas/phpdotenv": "2.x-dev",
