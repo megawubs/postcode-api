@@ -17,150 +17,84 @@ class Address implements AddressInterface
     /**
      * @var
      */
-    private $houseNumber;
+    public $houseNumber;
     /**
      * @var
      */
-    private $latitude;
+    public $latitude;
     /**
      * @var
      */
-    private $longitude;
+    public $longitude;
     /**
      * @var
      */
-    private $municipality;
+    public $municipality;
 
-    private $province;
+    public $province;
     /**
      * @var
      */
-    private $postcode;
+    public $postcode;
     /**
      * @var
      */
-    private $street;
+    public $street;
     /**
      * @var
      */
-    private $town;
+    public $town;
     /**
      * @var
      */
-    private $x;
+    public $x;
     /**
      * @var
      */
-    private $y;
+    public $y;
 
-    private function __construct($address)
-    {
-        $this->map($address);
+    function __construct(
+        $houseNumber,
+        $latitude,
+        $longitude,
+        $municipality,
+        $postcode,
+        $province,
+        $street,
+        $town,
+        $x,
+        $y
+    ) {
+        $this->houseNumber = $houseNumber;
+        $this->latitude = $latitude;
+        $this->longitude = $longitude;
+        $this->municipality = $municipality;
+        $this->postcode = $postcode;
+        $this->province = $province;
+        $this->street = $street;
+        $this->town = $town;
+        $this->x = $x;
+        $this->y = $y;
     }
 
-    /**
-     * @param $data
-     * @return Address
-     * @throws UnsuccessfulRequestException
-     */
-    public static function create($data)
+    public static function fromJsonObject($object)
     {
-        if ($data->success) {
-            $address = $data->resource;
-            return new static($address);
+        if ($object->success) {
+            $address = $object->resource;
+            return new static(
+                $address->house_number,
+                $address->latitude,
+                $address->longitude,
+                $address->municipality,
+                $address->postcode,
+                $address->province,
+                $address->street,
+                $address->town,
+                $address->x,
+                $address->y
+            );
         }
 
         throw new UnsuccessfulRequestException;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getHouseNumber()
-    {
-        return $this->houseNumber;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLatitude()
-    {
-        return $this->latitude;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLongitude()
-    {
-        return $this->longitude;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMunicipality()
-    {
-        return $this->municipality;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPostcode()
-    {
-        return $this->postcode;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getStreet()
-    {
-        return $this->street;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTown()
-    {
-        return $this->town;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getX()
-    {
-        return $this->x;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getY()
-    {
-        return $this->y;
-    }
-
-    public function getProvince()
-    {
-        return $this->province;
-    }
-
-
-    /**
-     * @param $address
-     */
-    private function map($address)
-    {
-        foreach ($address as $property => $value) {
-            $property = Str::camel($property);
-            if (property_exists($this, $property)) {
-                $this->{$property} = $value;
-            }
-        }
     }
 }

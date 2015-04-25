@@ -23,7 +23,7 @@ class HowItShouldWorkTest extends PHPUnit_Framework_TestCase
         $this->assertObjectHasAttribute("street", $addressData);
         $this->assertObjectHasAttribute("latitude", $addressData);
         $this->assertObjectHasAttribute("longitude", $addressData);
-        $this->assertEquals("Overijssel", $addressData->getProvince());
-        $this->assertEquals("20", $addressData->getHouseNumber());
+        $this->assertEquals("Overijssel", $addressData->province);
+        $this->assertEquals("20", $addressData->houseNumber);
     }
 }
