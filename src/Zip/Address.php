@@ -35,7 +35,7 @@ class Address implements AddressInterface
     /**
      * @var
      */
-    public $postcode;
+    public $zip;
     /**
      * @var
      */
@@ -58,7 +58,7 @@ class Address implements AddressInterface
         $latitude,
         $longitude,
         $municipality,
-        $postcode,
+        $zip,
         $province,
         $street,
         $town,
@@ -69,7 +69,7 @@ class Address implements AddressInterface
         $this->latitude = $latitude;
         $this->longitude = $longitude;
         $this->municipality = $municipality;
-        $this->postcode = $postcode;
+        $this->zip = $zip;
         $this->province = $province;
         $this->street = $street;
         $this->town = $town;
