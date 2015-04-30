@@ -26,5 +26,6 @@ class HowItShouldWorkTest extends PHPUnit_Framework_TestCase
         $this->assertEquals("Overijssel", $addressData->province);
         $this->assertEquals("20", $addressData->houseNumber);
         $this->assertInternalType("string", $addressData->toJson());
+        $this->assertInternalType("string", (string)$addressData);
     }
 }
