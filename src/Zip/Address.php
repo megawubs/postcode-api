@@ -103,7 +103,7 @@ class Address implements AddressInterface
         return json_encode($this);
     }
 
-    function __toString()
+    public function __toString()
     {
         return $this->toJson();
     }
