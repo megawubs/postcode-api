@@ -25,5 +25,6 @@ class HowItShouldWorkTest extends PHPUnit_Framework_TestCase
         $this->assertObjectHasAttribute("longitude", $addressData);
         $this->assertEquals("Overijssel", $addressData->province);
         $this->assertEquals("20", $addressData->houseNumber);
+        $this->assertInternalType("string", $addressData->toJson());
     }
 }

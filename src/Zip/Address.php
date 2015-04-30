@@ -97,4 +97,9 @@ class Address implements AddressInterface
 
         throw new UnsuccessfulRequestException;
     }
+
+    public function toJson()
+    {
+        return json_encode($this);
+    }
 }
